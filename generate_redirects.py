@@ -29,11 +29,14 @@ for redirect in config['redirects']:
     from_path = redirect['from'].lstrip('/')
     to_url = redirect['to']
     
-    # Create necessary directories
-    os.makedirs(os.path.join('public', os.path.dirname(from_path)), exist_ok=True)
+    # Create full path for the new file
+    full_path = os.path.join('public', from_path)
+    
+    # Create all necessary directories
+    os.makedirs(os.path.dirname(full_path), exist_ok=True)
     
     # Generate the HTML file
-    with open(os.path.join('public', from_path, 'index.html'), 'w') as file:
+    with open(os.path.join(full_path, 'index.html'), 'w') as file:
         file.write(generate_redirect_html(to_url))
 
 print("Redirect pages generated successfully!")
