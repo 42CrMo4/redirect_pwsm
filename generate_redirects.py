@@ -33,7 +33,7 @@ for redirect in config['redirects']:
     full_path = os.path.join('public', from_path)
     
     # Create all necessary directories
-    os.makedirs(os.path.dirname(full_path), exist_ok=True)
+    os.makedirs(full_path, exist_ok=True)
     
     # Generate the HTML file
     with open(os.path.join(full_path, 'index.html'), 'w') as file:
