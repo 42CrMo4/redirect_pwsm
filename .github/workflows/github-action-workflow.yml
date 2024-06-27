@@ -1,4 +1,4 @@
-name: Generate Redirects
+name: Generate Redirects and Landing Page
 
 on:
   push:
@@ -23,7 +23,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install pyyaml
 
-      - name: Generate Redirect Pages
+      - name: Generate Redirect Pages and Landing Page
         run: python generate_redirects.py
 
       - name: Deploy to GitHub Pages
